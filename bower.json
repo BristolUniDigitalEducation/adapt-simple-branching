@@ -1,0 +1,10 @@
+{
+    "name":"adapt-simple-branching",
+    "version":"0.4.1",
+    "displayName":"Simple Branching",
+    "main":"/js/adapt-simple-branching.js",
+    "keywords":[
+        "adapt-plugin",
+        "adapt-extension"
+    ]
+}
