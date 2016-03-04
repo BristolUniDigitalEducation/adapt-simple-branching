@@ -1,10 +1,15 @@
 {
-    "name":"adapt-simple-branching",
-    "version":"0.4.1",
-    "displayName":"Simple Branching",
-    "main":"/js/adapt-simple-branching.js",
-    "keywords":[
+    "name": "adapt-simple-branching",
+    "version": "0.5.1",
+    "displayName": "Simple Branching",
+    "main": "/js/adapt-simple-branching.js",
+    "keywords": [
         "adapt-plugin",
         "adapt-extension"
-    ]
+    ],
+    "authors": [
+		"Lukasz 'Severiaan' Grela"
+	],
+    "license": "GPL-3.0",
+    "homepage": "https://github.com/commelius/adapt-simple-branching"
 }

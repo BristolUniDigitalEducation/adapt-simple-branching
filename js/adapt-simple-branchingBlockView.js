@@ -24,9 +24,10 @@ define([
             var descendantComponents = this.model.findDescendants('components');
             if (descendantComponents.length > 0) {
                 descendantComponents.each(_.bind(function (model) {
+                    model.set("_isAvailable", false);
                     model.set("_isVisible", false);
                     try {
-                        this.$("." + model.get("_id")).addClass("simple-branching-hidden");
+                        this.$("." + model.get("_id")).addClass("display-none");
                     } catch (e) {
                         console.error(e);
                     }
@@ -34,7 +35,9 @@ define([
             }
             //
             this.model.set("_isVisible", false);
-            this.$el.addClass("simple-branching-hidden");
+            this.$el.addClass("display-none");
+            //
+            Adapt.trigger("pageLevelProgress:update");
         },
         showComponent: function () {
            //console.log("SimpleBranchingView" + ":" + this.model.get("_id"), "showComponent");
@@ -74,16 +77,19 @@ define([
 
                 for (var i = 0, max = models.length; i < max; i++) {
                     var m = models[i];
-                    this.$("." + m.get("_id")).removeClass("simple-branching-hidden");
+                    this.$("." + m.get("_id")).removeClass("display-none");
+                    m.set("_isAvailable", true);
                 }
             }
             //
             this.model.set("_isVisible", true);
-            this.$el.removeClass("simple-branching-hidden");
+            this.$el.removeClass("display-none");
             //
             if (forceCompletion) {
                 this.model.setCompletionStatus();
             }
+            //
+            Adapt.trigger("pageLevelProgress:update");
         },
         _setCompletionOnModel: function (models, status) {
            //console.log("SimpleBranchingView" + ":" + this.model.get("_id"), "_setCompletionOnModel(models, status)", models, status);
