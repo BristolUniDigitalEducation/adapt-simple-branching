@@ -3,7 +3,7 @@ An Adapt framework extension to add simple branching functionality. Based on the
 
 ## Installation
 
-Download the ZIP and extract into the src > extensions directory.
+Download the ZIP and extract into the src > extensions directory and run an appropriate Grunt task.
 
 ## Usage
 
@@ -21,4 +21,14 @@ Add the `_branching` entry to the block that will have alternate content
 * `questionId` the question component ID which this branching block will listen for results
 * `incorrect` the component ID within the branching block that will be displayed when user will answer incorrectly
 * `correct` the component ID within the branching block that will be displayed when user will answer correctly
-* `forceCompletion` defaults to true, boolean flag indicating if the completion status
+* `forceCompletion` defaults to true, boolean flag indicating if the completion status should be set on the components
+
+## Notes
+
+* Makes components _isAvailable: false
+* Adds display-none class to component div
+* Refreshes PLP.
+
+## Tested on
+
+IE8, IE11, Chrome 48, Firefox 44
