@@ -128,7 +128,7 @@ define([
          */
         getCorrectModel: function () {
             if (!this.isUsingCorrect()) return;
-            var config = this.getConfig();
+            var config = this.getConfig(),
             ids = config.correct;
 
             return this._getModels(ids);
