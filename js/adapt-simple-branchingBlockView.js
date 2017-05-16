@@ -93,6 +93,8 @@ define([
             }
             //
             Adapt.trigger("pageLevelProgress:update");
+            //
+            $(window).resize();
         },
         _setCompletionOnModel: function (models, status) {
            //console.log("SimpleBranchingView" + ":" + this.model.get("_id"), "_setCompletionOnModel(models, status)", models, status);

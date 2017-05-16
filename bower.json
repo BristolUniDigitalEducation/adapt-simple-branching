@@ -1,6 +1,6 @@
 {
     "name": "adapt-simple-branching",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "displayName": "Simple Branching",
     "main": "/js/adapt-simple-branching.js",
     "keywords": [
