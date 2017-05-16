@@ -42,33 +42,35 @@ define([
         showComponent: function () {
            //console.log("SimpleBranchingView" + ":" + this.model.get("_id"), "showComponent");
            //console.log("SimpleBranchingView" + ":" + this.model.get("_id"), this.model);
-            var models;
-            var forceCompletion = this.model.isForceCompletion();
+            var models,
+                correct = this.model.getCorrectModel(),
+                incorrect = this.model.getIncorrectModel(),
+                forceCompletion = this.model.isForceCompletion();
            //console.log("SimpleBranchingView" + ":" + this.model.get("_id"), "forceCompletion", forceCompletion);
             if (forceCompletion) {
-                this._setCompletionOnModel(this.model.getCorrectModel(), true);
-                this._setCompletionOnModel(this.model.getIncorrectModel(), true);
+                if (correct) this._setCompletionOnModel(correct, true);
+                if (incorrect) this._setCompletionOnModel(incorrect, true);
             } else {
                 //force completion of "hidden" child
                 if (!this.model.isQuestionCorrect()) {
-                    this._setCompletionOnModel(this.model.getCorrectModel(), true);
+                    if (correct) this._setCompletionOnModel(correct, true);
                 } else {
-                    this._setCompletionOnModel(this.model.getIncorrectModel(), true);
+                    if (incorrect) this._setCompletionOnModel(incorrect, true);
                 }
             }
 
             if (this.model.isQuestionCorrect()) {
                 //show 'correct' component
-                models = this.model.getCorrectModel();
+                models = correct;
             } else {
                 //show 'incorrect' component
-                models = this.model.getIncorrectModel();
+                models = incorrect;
             }
             //disable hidden children
             if (!this.model.isQuestionCorrect()) {
-                this._disableModel(this.model.getCorrectModel());
+                if (correct) this._disableModel(correct);
             } else {
-                this._disableModel(this.model.getIncorrectModel());
+                if (incorrect) this._disableModel(incorrect);
             }
             //
            //console.log("SimpleBranchingView" + ":" + this.model.get("_id"), "models", models);
@@ -77,6 +79,7 @@ define([
 
                 for (var i = 0, max = models.length; i < max; i++) {
                     var m = models[i];
+                    m.set("_isVisible", true);
                     this.$("." + m.get("_id")).removeClass("display-none");
                     m.set("_isAvailable", true);
                 }

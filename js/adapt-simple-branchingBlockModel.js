@@ -91,8 +91,7 @@ define([
 
         isQuestionComplete: function () {
             var questionModel = this.getQuestionModel();
-
-            return questionModel ? questionModel.get("_isComplete") : false;
+            return questionModel ? questionModel.get("_isComplete") && questionModel.get("_isInteractionComplete") : false;
         },
         isQuestionCorrect: function () {
             var questionModel = this.getQuestionModel();
@@ -213,7 +212,7 @@ define([
         _getModel: function (id) {
             try {
                 var model = Adapt.findById(id);
-            } catch (e) {}
+            } catch (e) { console.error("BranchingBlockModel:" + this.get("_id"), e); }
 
             return model;
         }

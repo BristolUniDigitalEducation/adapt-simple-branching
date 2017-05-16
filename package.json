@@ -1,6 +1,6 @@
 {
     "name":"adapt-simple-branching",
-    "version":"0.5.1",
+    "version":"0.5.2",
     "description":"An extension to add simple branching functionality. Based on the results of the question the simple-branching block can display/hide it's components.",
     "repository":{
         "type":"git",
