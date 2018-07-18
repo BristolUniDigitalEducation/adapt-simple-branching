@@ -83,10 +83,11 @@ define([
                     this.$("." + m.get("_id")).removeClass("display-none");
                     m.set("_isAvailable", true);
                 }
+				// moved this inside condition or block titles will
+				// show for blocks with no components
+				this.model.set("_isVisible", true);
+				this.$el.removeClass("display-none");
             }
-            //
-            this.model.set("_isVisible", true);
-            this.$el.removeClass("display-none");
             //
             if (forceCompletion) {
                 this.model.setCompletionStatus();
