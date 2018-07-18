@@ -59,7 +59,7 @@ define([
 
                 if (questionModel.get("_parentId") === this.get("_id")) {
                     console.error("BranchingBlockModel", "Component mentioned in 'questionId' may not be a child of block '" + id + "'.");
-                    return false;
+                    //return false;
                 }
             }
             //
@@ -166,7 +166,7 @@ define([
 
                 if (model.get("_parentId") !== this.get("_id")) {
                     console.error("BranchingBlockModel", "Component mentioned in '" + type + "' may not be a child of block '" + id + "'.");
-                    return false;
+                    //return false;
                 }
             } else {
                 var listIds = ids.split(",");
