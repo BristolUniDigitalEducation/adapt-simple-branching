@@ -1,10 +1,6 @@
 # adapt-simple-branching
 An Adapt framework extension to add simple branching functionality. Based on the results of the question the simple-branching block can display/hide it's components.
 
-## This fork
-
-This fork updated to allow use with the Adapt authoring tool 0.5.0
-
 ## Installation
 
 Download the ZIP and extract into the src > extensions directory and run an appropriate Grunt task.
